@@ -361,25 +361,47 @@ const Sidebar = ({ feature, onClose }) => {
 };
 
 // --- GENERAL FEEDBACK SIDEBAR ---
-const GeneralFeedbackSidebar = ({ onClose }) => {
-  const overlayRef = useRef(null);
+// Footer-anchored modal. Uses position: absolute so it renders right where the
+// trigger button is — important when the page is embedded in an iframe (Duda),
+// where position: fixed would pin to the iframe content top (often offscreen
+// once the parent page has scrolled to the bottom of the iframe).
+const GeneralFeedbackModal = ({ onClose }) => {
+  const cardRef = useRef(null);
   useEffect(() => {
     const handler = (e) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", handler);
+    // Bring modal into view in case button click happened just at viewport edge.
+    if (cardRef.current) {
+      cardRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
     return () => document.removeEventListener("keydown", handler);
   }, [onClose]);
 
   return (
-    <div ref={overlayRef} onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}
-      style={{ position: "fixed", inset: 0, zIndex: 1000, background: "rgba(26,14,46,0.35)", display: "flex", justifyContent: "flex-end", animation: "overlayIn 0.2s ease" }}>
-      <div style={{
-        width: "100%", maxWidth: 480, background: "#fff",
-        borderLeft: "1px solid " + C.border, height: "100%", overflowY: "auto",
-        padding: "32px 32px 40px", boxShadow: "-8px 0 32px rgba(0,0,0,0.08)",
-        animation: "slideIn 0.25s ease",
-      }}>
+    <div
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      style={{
+        position: "absolute", inset: 0, zIndex: 10,
+        background: "rgba(26,14,46,0.55)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: "32px 20px",
+        animation: "overlayIn 0.2s ease",
+      }}
+    >
+      <div
+        ref={cardRef}
+        style={{
+          width: "100%", maxWidth: 520, background: "#fff",
+          borderRadius: 16, padding: "32px 32px 36px",
+          boxShadow: "0 16px 48px rgba(0,0,0,0.25)",
+          position: "relative",
+          maxHeight: "calc(100% - 16px)", overflowY: "auto",
+          animation: "modalIn 0.22s ease",
+          textAlign: "left",
+        }}
+      >
         <button onClick={onClose} style={{
-          position: "sticky", top: 0, float: "right", background: C.bgAlt, border: "none",
+          position: "absolute", top: 16, right: 16, background: C.bgAlt, border: "none",
           borderRadius: 8, width: 32, height: 32, cursor: "pointer", color: C.textMuted,
           fontSize: 16, zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center",
         }}>&#x2715;</button>
@@ -463,6 +485,7 @@ export default function Roadmap() {
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
         @keyframes overlayIn { from { opacity:0; } to { opacity:1; } }
         @keyframes slideIn { from { transform:translateX(100%); } to { transform:translateX(0); } }
+        @keyframes modalIn { from { opacity:0; transform: translateY(12px) scale(0.98); } to { opacity:1; transform: translateY(0) scale(1); } }
         * { box-sizing: border-box; margin: 0; padding: 0; }
       `}</style>
 
@@ -480,7 +503,7 @@ export default function Roadmap() {
       </div>
 
       {/* HERO */}
-      <header style={{ maxWidth: 1100, margin: "0 auto", padding: "56px 32px 0", position: "relative", zIndex: 1 }}>
+      <header style={{ maxWidth: 1100, margin: "0 auto", padding: "24px 32px 0", position: "relative", zIndex: 1 }}>
         <div style={{ display: "inline-block", padding: "5px 14px", borderRadius: 20, background: C.accentLight, marginBottom: 16 }}>
           <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 11, fontWeight: 700, color: C.accent, letterSpacing: "0.08em", textTransform: "uppercase" }}>Research Exchange</span>
         </div>
@@ -549,7 +572,7 @@ export default function Roadmap() {
       </main>
 
       {/* FOOTER */}
-      <footer style={{ background: C.footer, padding: "56px 32px", textAlign: "center" }}>
+      <footer style={{ background: C.footer, padding: "56px 32px", textAlign: "center", position: "relative" }}>
         <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 22, color: "#fff", margin: "0 0 8px" }}>
           Have something else in mind?
         </p>
@@ -569,10 +592,11 @@ export default function Roadmap() {
         <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", marginTop: 32, fontFamily: "'Inter', sans-serif" }}>
           &copy; 2026 Pulse Labs AI. All rights reserved.
         </p>
+
+        {showGeneralFeedback && <GeneralFeedbackModal onClose={() => setShowGeneralFeedback(false)} />}
       </footer>
 
       {selectedFeature && <Sidebar feature={selectedFeature} onClose={() => setSelectedFeature(null)} />}
-      {showGeneralFeedback && <GeneralFeedbackSidebar onClose={() => setShowGeneralFeedback(false)} />}
     </div>
   );
 }
