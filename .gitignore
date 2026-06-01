@@ -5,6 +5,7 @@ dist
 .vite
 .env
 .env.local
+.claude/
 
 # Private: editorial source + research notes (contain named customer feedback)
 Call Feedback.md
