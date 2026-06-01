@@ -1,0 +1,14 @@
+node_modules
+dist
+.DS_Store
+*.log
+.vite
+.env
+.env.local
+
+# Private: editorial source + research notes (contain named customer feedback)
+Call Feedback.md
+drafts/
+roadmap-content.md
+Pulse-Public-Roadmap.docx
+build-docx.cjs
