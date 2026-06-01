@@ -1,0 +1,596 @@
+<!-- Pulse Public Roadmap — self-contained embed for Duda HTML widget -->
+<style>
+  .pr-root {
+    --pr-bg: #FFFFFF;
+    --pr-bg-alt: #F6F3FB;
+    --pr-border: #E8E0F0;
+    --pr-text: #1A1A2E;
+    --pr-body: #4A4A5A;
+    --pr-muted: #8A8A9A;
+    --pr-accent: #7C5CFC;
+    --pr-accent-light: #EDE8FF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--pr-text);
+    background: var(--pr-bg);
+    line-height: 1.55;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+    box-sizing: border-box;
+  }
+  .pr-root *, .pr-root *::before, .pr-root *::after { box-sizing: border-box; }
+  .pr-header { margin-bottom: 32px; }
+  .pr-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--pr-accent);
+    margin: 0 0 8px;
+  }
+  .pr-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    line-height: 1.15;
+    color: var(--pr-text);
+  }
+  .pr-lede {
+    font-size: 17px;
+    color: var(--pr-body);
+    margin: 0 0 24px;
+    max-width: 720px;
+  }
+  .pr-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 16px;
+    background: var(--pr-bg-alt);
+    border: 1px solid var(--pr-border);
+    border-radius: 12px;
+  }
+  .pr-legend-item { display: inline-flex; align-items: center; }
+  .pr-section { margin-top: 48px; }
+  .pr-section-head {
+    border-bottom: 1px solid var(--pr-border);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+  .pr-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--pr-text);
+  }
+  .pr-section-tagline {
+    margin: 0;
+    color: var(--pr-muted);
+    font-size: 15px;
+    font-style: italic;
+  }
+  .pr-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .pr-card {
+    border: 1px solid var(--pr-border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    background: var(--pr-bg);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .pr-card:hover { border-color: var(--pr-accent); }
+  .pr-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .pr-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--pr-text);
+    line-height: 1.3;
+  }
+  .pr-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .pr-note {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--pr-muted);
+    margin: 2px 0 6px;
+  }
+  .pr-summary {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--pr-text);
+    margin: 0 0 10px;
+  }
+  .pr-desc {
+    font-size: 14px;
+    color: var(--pr-body);
+    margin: 0;
+  }
+  .pr-subhead {
+    font-size: 14px;
+    color: var(--pr-body);
+    margin: 14px 0 8px;
+    font-weight: 500;
+  }
+  .pr-bullets {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+    color: var(--pr-body);
+  }
+  .pr-bullets li { margin-bottom: 6px; }
+  .pr-bullets li strong { color: var(--pr-text); }
+  @media (max-width: 640px) {
+    .pr-root { padding: 20px 16px 48px; }
+    .pr-title { font-size: 28px; }
+    .pr-lede { font-size: 16px; }
+    .pr-section-title { font-size: 20px; }
+    .pr-cards { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="pr-root">
+  <header class="pr-header">
+    <p class="pr-eyebrow">Public Roadmap</p>
+    <h1 class="pr-title">What we&rsquo;re building at Pulse</h1>
+    <p class="pr-lede">What we&rsquo;ve shipped, what&rsquo;s next, and what we&rsquo;re weighing. Updated regularly as priorities evolve.</p>
+    <div class="pr-legend">
+      <span class="pr-legend-item"><span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span></span>
+      <span class="pr-legend-item"><span class="pr-pill" style="background:#E6F2FF;color:#0071E8">Coming Soon</span></span>
+      <span class="pr-legend-item"><span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span></span>
+      <span class="pr-legend-item"><span class="pr-pill" style="background:#F4F4F6;color:#6B6B7A">Under Consideration</span></span>
+    </div>
+  </header>
+  
+      <section class="pr-section">
+        <header class="pr-section-head">
+          <h2 class="pr-section-title">Participant Management</h2>
+          <p class="pr-section-tagline">Find, verify, and manage the right people for every study.</p>
+        </header>
+        <div class="pr-cards">
+          
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Pulse Voices™ Panel</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Access a diverse, vetted panel of 150,000+ users for fast, compliant recruiting.</p>
+          <p class="pr-desc">Pulse Voices™ gives you instant access to a diverse, vetted user panel, including 3,000+ AI-focused participants and 2,500+ verified professionals. Three ways to recruit: post your study to the panel directory so qualified members can apply, create external recruitment pages for your own campaigns, or have Pulse search and directly invite participants on your behalf. Many panel members are already ID-verified, and you can require additional verification steps for any study.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Bring Your Own Participants</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Invite your own users and manage them through the same workflow as panel recruits.</p>
+          <p class="pr-desc">Already have a customer list or user base you want to study? Bring them into the Pulse platform and run them through the same workflow as panel recruits: scheduling, consent, data capture, and incentives all in one place.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Recruitment Landing Pages</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Public landing pages with project info and screener links for your own recruitment campaigns.</p>
+          <p class="pr-desc">Run recruitment through your own channels (social, email, partner networks) using branded landing pages that link directly to your screener. Participants who come through these pages create Pulse Voices accounts and join the panel, so the pool grows with every study you run.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Panel Search</h3>
+            <span class="pr-pill" style="background:#E6F2FF;color:#0071E8">Coming Soon</span>
+          </div>
+          
+          <p class="pr-summary">Search the Pulse Voices panel yourself using demographics and AI-powered participant insights.</p>
+          <p class="pr-desc">Browse and filter the panel by demographics, device usage, profession, and more. AI-powered analysis draws on data from past screeners to surface participants you might not find with demographic filters alone. Currently Pulse runs panel searches on your behalf. This puts the search directly in your hands.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Screener Builder</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Find exactly the right participants with custom targeting and intelligent screening.</p>
+          <p class="pr-desc">Define who qualifies for your study with conditional logic, quotas, and disqualification rules, then let the screener do the work. We specialize in finding hard-to-reach and high-touch audiences, so every participant meets your exact criteria before they are scheduled.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Participant Verification</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">A configurable verification funnel. Enable the checks your study requires.</p>
+          <p class="pr-desc">Choose which verification steps participants must pass before entering your study. Options include location verification (check device location against geographic conditions you set), language verification, ID and phone verification via Persona, and custom verification where participants upload images of devices, webpages, or profiles for manual review. Enable any combination to fit your study.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Document Signatures</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Have participants digitally sign NDAs, consent forms, or participation agreements before they begin.</p>
+          <p class="pr-desc">Upload your documents and participants review and sign them digitally via integrated e-signature. Signed documents are securely stored and accessible throughout the project. Use this for IRB consent, NDAs, or any agreement your legal team requires before participants access confidential material.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Participant Payments</h3>
+            <span class="pr-pill" style="background:#E6F2FF;color:#0071E8">Coming Soon</span>
+          </div>
+          
+          <p class="pr-summary">Pay participants directly through the platform when they complete a study.</p>
+          <p class="pr-desc">No more juggling gift cards, Venmo requests, or spreadsheet tracking. Incentive payments are built into the study workflow. Participants get paid on completion, and you get a clean record of every transaction.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Private Panels</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Recruit once, research many times with a dedicated participant pool.</p>
+          <p class="pr-desc">Create an owned panel that persists across studies. Control who is in your pool, how they are segmented, and which studies they can participate in. A reusable research asset for your organization.</p>
+          
+          
+        </article>
+        </div>
+      </section>
+  
+      <section class="pr-section">
+        <header class="pr-section-head">
+          <h2 class="pr-section-title">Data Capture</h2>
+          <p class="pr-section-tagline">Every methodology your research needs, from structured surveys to naturalistic observation.</p>
+        </header>
+        <div class="pr-cards">
+          
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Surveys</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Capture targeted, real-world user feedback at any stage of research.</p>
+          <p class="pr-desc">Build questionnaires with multiple question types (multiple choice, scales, open-ended, matrix), conditional branching, and randomization. Collect responses asynchronously and review results as they come in.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Evaluations</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Task-based, directed user research at scale across web, mobile, smart devices, and automotive.</p>
+          <p class="pr-desc">You define a set of tasks, participants complete them on their own time while recording their screen and camera. Asynchronous collection means participants engage wherever they are, on their own schedule. Review submissions with synced video playback and transcripts.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Multi-Method Studies</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Combine multiple data capture methods like surveys, evaluations, and interviews in a single study.</p>
+          <p class="pr-desc">Design studies that link multiple capture methods end-to-end. A participant might complete a screener survey, then an evaluation, then a follow-up interview, all with data connected across touchpoints.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Interviews</h3>
+            <span class="pr-pill" style="background:#E6F2FF;color:#0071E8">Coming Soon</span>
+          </div>
+          <div class="pr-note">Available now on managed projects</div>
+          <p class="pr-summary">Live 1:1 and group interviews with multi-camera, on-screen scripts, hidden observers, and auto-transcription.</p>
+          <p class="pr-desc">Purpose-built for research, not repurposed video conferencing. Multi-camera support including a companion app, on-screen research scripts so moderators stay on protocol, role-specific views for participants, moderators, and hidden observers, plus real-time note-taking and automatic transcription. Currently available on managed projects run by Pulse. Coming soon for self-service marketplace researchers.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Observations</h3>
+            <span class="pr-pill" style="background:#E6F2FF;color:#0071E8">Coming Soon</span>
+          </div>
+          <div class="pr-note">Available now on managed projects</div>
+          <p class="pr-summary">Capture real behavior with in-situation, naturalistic studies.</p>
+          <p class="pr-desc">A rolling recorder runs any time the user engages with a product. When they trigger feedback, they submit video and audio of the experience and the critical moments that led to it. After a one-time setup, users simply use the product and report issues as they naturally happen. Currently available on managed projects. Self-service access coming soon.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">App Integrations</h3>
+            <span class="pr-pill" style="background:#E6F2FF;color:#0071E8">Coming Soon</span>
+          </div>
+          <div class="pr-note">Available now on managed projects</div>
+          <p class="pr-summary">Embedded feedback for real-time in-app insights, powered by the FlightRecorder SDK.</p>
+          <p class="pr-desc">Integrate the lightweight FlightRecorder SDK to capture feedback directly from within your app. Available across Android, iOS, and Web. Custom in-app surveys, session replay, and real-time insights let participants report bugs, suggest features, and provide contextual feedback without leaving the product.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Rules Engine</h3>
+            <span class="pr-pill" style="background:#E6F2FF;color:#0071E8">Coming Soon</span>
+          </div>
+          
+          <p class="pr-summary">Stop managing complex studies in spreadsheets. Automate them visually.</p>
+          <p class="pr-desc">Build study logic with a visual drag-and-drop builder. Route participants based on screener responses, trigger follow-up tasks on completion, fork cohorts by criteria, and manage assignments automatically. Your study runs itself instead of living in a Google Sheet.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">AI-Moderated Sessions</h3>
+            <span class="pr-pill" style="background:#F4F4F6;color:#6B6B7A">Under Consideration</span>
+          </div>
+          
+          <p class="pr-summary">Qualitative depth at quantitative scale, without a moderator for every session.</p>
+          <p class="pr-desc">An AI moderator follows your research protocol to conduct structured interviews, usability sessions, and contextual inquiries at scale. Collect rich, conversational feedback from hundreds of participants without staffing a moderator for each one.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Bring Your Own Tools</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Bring your own capture, analysis, and reporting tools — or just upload data directly.</p>
+          <p class="pr-desc">Agencies and in-house teams have invested years in their own tooling and processes. Rather than asking them to switch, Pulse connects to the tools they already use across the whole research workflow: capture tools like survey, usability, and diary study platforms; analysis, transcription, and reporting tools; and BI dashboards. Teams that just want to bring results in can upload data directly. Use Pulse for the parts that help and keep the rest of your stack intact.</p>
+          
+          
+        </article>
+        </div>
+      </section>
+  
+      <section class="pr-section">
+        <header class="pr-section-head">
+          <h2 class="pr-section-title">Analysis &amp; Deliverables</h2>
+          <p class="pr-section-tagline">Go from raw sessions to shareable evidence and clear insights.</p>
+        </header>
+        <div class="pr-cards">
+          
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Highlights &amp; Annotations</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Mark the moments that matter and build your evidence base as you go.</p>
+          <p class="pr-desc">Select key passages in transcripts or tag timestamps in recordings to create highlights. Organize them by theme, share with stakeholders, and build a structured evidence base. When it is time to tell the story, the proof is already assembled.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Clips &amp; Reels</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Pull the best moments from sessions into shareable highlight reels.</p>
+          <p class="pr-desc">Extract compelling moments from your sessions into short clips and compile them into highlight reels. A two-minute video lands harder than a fifty-page report.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Export &amp; Reporting</h3>
+            <span class="pr-pill" style="background:#E6F9F1;color:#03BF6F">Live</span>
+          </div>
+          
+          <p class="pr-summary">Get your data out in the formats your team already uses.</p>
+          <p class="pr-desc">Download transcripts, survey data, clips, and annotations as CSV, PDF, MP4, and more. No lock-in, no reformatting. Your research fits into whatever workflow comes next.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Cross-Capture Analysis</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">All data within a project is linked, so you can pull from different sources into one insight.</p>
+          <p class="pr-desc">Data from surveys, evaluations, interviews, and observations within a project is connected at the participant level. Run analysis that pulls a survey response, an interview quote, and a behavioral clip into a single finding without manually cross-referencing spreadsheets.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">AI-Assisted Analysis</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Automatic video tagging for key events and chat-based search and synthesis across your data.</p>
+          <p class="pr-desc">Two core capabilities. First, AI automatically tags video content for key events like confusion, delight, task failure, and feature requests, so you can jump to what matters without watching every session. Second, an agentic chat interface lets you ask questions across your research data and get synthesized answers with source references.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Insight Repository</h3>
+            <span class="pr-pill" style="background:#F4F4F6;color:#6B6B7A">Under Consideration</span>
+          </div>
+          
+          <p class="pr-summary">Institutional research memory, so insights don’t die in slide decks.</p>
+          <p class="pr-desc">Search across all past studies to find relevant findings, clips, and annotations. When someone asks “didn’t we research this before?” the answer is findable in seconds, not buried in a Google Drive folder from two years ago.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Integrated Reporting</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Build shareable reports where every claim traces back to real evidence.</p>
+          <p class="pr-desc">Create polished reports directly from your research data. Every insight links back to the clip, quote, or data point that supports it, so stakeholders can trace the thread from recommendation to evidence. No more copying screenshots into decks and hoping the context survives.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">MCP Server</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Programmatic access to your research data for analysis, automation, and AI agents.</p>
+          <p class="pr-desc">A Model Context Protocol server that exposes your studies, transcripts, clips, survey data, and annotations to external tools and AI assistants. Pull research data into your own analysis environment, run custom synthesis with the LLM of your choice, or wire Pulse into automated workflows. For teams that have invested in their own analysis stack, this means Pulse fits into it rather than replacing it.</p>
+          
+          
+        </article>
+        </div>
+      </section>
+  
+      <section class="pr-section">
+        <header class="pr-section-head">
+          <h2 class="pr-section-title">Marketplace &amp; Discovery</h2>
+          <p class="pr-section-tagline">How agencies and customers find each other on the Exchange.</p>
+        </header>
+        <div class="pr-cards">
+          
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Agency Storefronts</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Build your storefront and showcase your expertise to customers on the Exchange.</p>
+          <p class="pr-desc">Agencies build rich profiles highlighting methodology expertise, industry verticals, team bios, and case studies. Customers can evaluate agencies before engaging, cutting down on back-and-forth vetting.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Matching &amp; Recommendations</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Find the right research partner faster through algorithmic matching.</p>
+          <p class="pr-desc">The Exchange recommends best-fit agencies for each brief based on methodology match, domain expertise, availability, and past performance. A smart shortlist, not a blind marketplace.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Bidding &amp; Proposal Flow</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">A curated marketplace of research projects matched to your expertise.</p>
+          <p class="pr-desc">Customers fill out structured briefs that standardize the information agencies need. Agencies respond with proposals. Customers compare side-by-side on scope, timeline, approach, and price, all within the Exchange.</p>
+          <p class="pr-subhead">Options being explored within this flow, drawn from agency and client interviews:</p>
+          <ul class="pr-bullets"><li><strong>AI-assisted RFP builder</strong> — a conversational flow that asks what the project is about, the team, budget, timeline, and goals, then assembles a structured brief. Clients pick an assisted path when they need something fast or a detailed path when they have time.</li><li><strong>RFP coaching</strong> — if a brief is getting no responses, the platform suggests how to adjust it; best-practice prompts built into the creation flow.</li><li><strong>Tiered bid proposals</strong> — agencies submit good / better / best pricing instead of one flat fee: a base scope plus optional add-ons.</li><li><strong>Bid range visibility</strong> — staged, asymmetric reveal of where a bid falls (e.g. before vs. after submitting), so agencies see if there’s a budget to stay within without exposing their own number.</li><li><strong>Public Q&amp;A on RFPs</strong> — shared questions and answers during an active RFP, visible to all bidders, with the option to keep sensitive threads private.</li><li><strong>Loss reasoning</strong> — when a bid isn’t selected, agencies receive structured feedback on why (pricing, scope fit, timeline, staffing) instead of a silent “not selected.”</li></ul>
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Ratings &amp; Reviews</h3>
+            <span class="pr-pill" style="background:#F4F4F6;color:#6B6B7A">Under Consideration</span>
+          </div>
+          
+          <p class="pr-summary">Build trust over time with post-project quality ratings from both sides.</p>
+          <p class="pr-desc">After each engagement, agencies and customers rate the experience. Over time this builds a trust layer that improves match quality and surfaces top-performing partners. Reputation you earn, not just claim.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Certification &amp; Badges</h3>
+            <span class="pr-pill" style="background:#F4F4F6;color:#6B6B7A">Under Consideration</span>
+          </div>
+          
+          <p class="pr-summary">Verified credentials for methodology expertise and platform training.</p>
+          <p class="pr-desc">Earn badges by completing Pulse training modules or demonstrating methodology expertise. Customers see verified credentials when evaluating agencies, giving them confidence before the first conversation.</p>
+          
+          
+        </article>
+        </div>
+      </section>
+  
+      <section class="pr-section">
+        <header class="pr-section-head">
+          <h2 class="pr-section-title">Project Setup &amp; Collaboration</h2>
+          <p class="pr-section-tagline">Everything between “let’s work together” and kickoff.</p>
+        </header>
+        <div class="pr-cards">
+          
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Scope Agreements</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Get aligned on deliverables, timeline, and budget before work begins.</p>
+          <p class="pr-desc">Templated scope documents capture everything both parties need to agree on: deliverables, timeline, methodology, and budget. Both sides sign off before work starts, so misalignment surfaces early instead of at the invoice.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">In-App Messaging</h3>
+            <span class="pr-pill" style="background:#F4F4F6;color:#6B6B7A">Under Consideration</span>
+          </div>
+          
+          <p class="pr-summary">Keep all project communication in one place instead of scattered across email.</p>
+          <p class="pr-desc">Direct messaging between researchers, agencies, and customers, threaded by engagement. No more digging through email chains to find that one attachment or that one decision.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Shared Project Workspace</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">One place to see what has been delivered, what is in progress, and what is next.</p>
+          <p class="pr-desc">A centralized project hub where every stakeholder can track deliverables, timelines, and status in real time. No more status-update meetings to learn what everyone already knows.</p>
+          
+          
+        </article>
+        <article class="pr-card">
+          <div class="pr-card-head">
+            <h3 class="pr-card-title">Notifications &amp; Alerts</h3>
+            <span class="pr-pill" style="background:#EDE8FF;color:#7C5CFC">Planned</span>
+          </div>
+          
+          <p class="pr-summary">Know when something needs your attention without constantly checking the platform.</p>
+          <p class="pr-desc">Configurable alerts for project milestones, new messages, review requests, and status changes, delivered via in-app, email, or Slack.</p>
+          
+          
+        </article>
+        </div>
+      </section>
+</div>
